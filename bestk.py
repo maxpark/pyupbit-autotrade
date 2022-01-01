@@ -3,7 +3,10 @@ import numpy as np
 
 
 def get_ror(k=0.5):
-    df = pyupbit.get_ohlcv("KRW-BTC", count=7)
+    #df = pyupbit.get_ohlcv("KRW-BTC", count=14)
+    df = pyupbit.get_ohlcv("KRW-XRP", count=30)
+    
+    
     df['range'] = (df['high'] - df['low']) * k
     df['target'] = df['open'] + df['range'].shift(1)
 
